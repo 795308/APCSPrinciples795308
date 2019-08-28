@@ -2,7 +2,7 @@ class Ball{
   constructor(x,y,dx,dy){
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
-    this.acc = createVector(0, 1);
+    this.acc = createVector(0, 0.1);
     this.clr = color(random(255),random(255),random(255));
     this.w = random(10, 30);
   }//constructor end

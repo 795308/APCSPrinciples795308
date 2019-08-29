@@ -4,7 +4,7 @@ class Ball{
     this.vel = createVector(dx, dy);
     this.acc = createVector(0, 0.1);
     this.clr = color(random(255),random(255),random(255));
-    this.w = random(10, 30);
+    this.w = 15;
   }//constructor end
   run(){
     this.checkEdges();

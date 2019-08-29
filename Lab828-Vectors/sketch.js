@@ -15,12 +15,12 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-  background(5, 5, 5);
+  background(5, 5, 5, 20);
   runBalls();
 }
 function loadBalls(n){
   for(var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(height), random(-1,1), random(-1,1));
+    balls[i] = new Ball(random(width), random(200), random(-3, 3), random(3));
   }
 }//loads balls into array
 function runBalls(){

@@ -20,7 +20,7 @@ function draw() {
   runBalls();
 }
 function loadBalls(n){
-  mainBall = new Ball(width/2, height/2, random(-1,1), random(-1, 1), -1)
+  mainBall = new Ball(width/2, height/2, random(-1,1), random(-1,1), -1)
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(height), random(-1, 1), random(-1, 1), i);
   }

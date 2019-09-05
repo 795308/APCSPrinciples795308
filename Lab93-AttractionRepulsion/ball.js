@@ -30,14 +30,14 @@ class Ball{
       }
       if(this.loc.y > height){
         this.loc.y = 0
-      
+
     }
   }//checkEdges end
   update(){
     var distToMainball;
     if(this.id >= 0){
       distToMainball = this.loc.dist(mainBall.loc);
-      if(distToMainball < 250){
+      if(distToMainball < 100000){
         //add attraction
         this.acc = p5.Vector.sub(mainBall.loc, this.loc);
         this.acc.normalize();

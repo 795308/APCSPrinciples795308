@@ -36,12 +36,42 @@ class Ball{
   update(){
     var distToAttractorball;
     var distToRepellerballball;
+    distToAttractorball = this.loc.dist(attractorBall.loc);
+    distToRepellerballball = this.loc.dist(repellerBall.loc);
     if(this.id >= 0){
-      distToAttractorball = this.loc.dist(attractorBall.loc);
-      distToRepellerballball = this.loc.dist(repellerBall.loc);
       if(distToAttractorball < 250){
         //add attraction
         this.acc = p5.Vector.sub(attractorBall.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.1);
+      }
+      if(distToRepellerballball < 150){
+        //add repulsion
+        this.acc = p5.Vector.sub(this.loc, repellerBall.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+      this.vel.add(this.acc);
+    }
+    if(this.id < 0){
+      if(distToAttractorball < 250){
+        //add attraction
+        this.acc = p5.Vector.sub(attractorBall.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.1);
+      }
+      if(distToAttractorball < 150){
+        //add repulsion
+        this.acc = p5.Vector.sub(this.loc, attractorBall.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+      this.vel.add(this.acc);
+    }
+    if(this.id < 0){
+      if(distToRepellerballball < 250){
+        //add attraction
+        this.acc = p5.Vector.sub(repellerBall.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }

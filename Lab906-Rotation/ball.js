@@ -20,16 +20,16 @@ class Ball{
   checkEdges(){
 
       if(this.loc.x < 0){
-        this.loc.x = width
+        this.vel.x = -this.vel.x
       }
       if(this.loc.x > width){
-        this.loc.x = 0
+        this.vel.x = -this.vel.x
       }
       if(this.loc.y < 0){
-        this.loc.y = height
+        this.vel.y = -this.vel.y
       }
       if(this.loc.y > height){
-        this.loc.y = 0
+        this.vel.y = -this.vel.y
 
     }
   }//checkEdges end
@@ -54,13 +54,13 @@ class Ball{
       this.vel.add(this.acc);
     }
     if(this.id < 0){
-      if(distToAttractorball < 250){
+      if(distToAttractorball < 300){
         //add attraction
         this.acc = p5.Vector.sub(attractorBall.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }
-      if(distToAttractorball < 150){
+      if(distToAttractorball < 100){
         //add repulsion
         this.acc = p5.Vector.sub(this.loc, attractorBall.loc);
         this.acc.normalize();
@@ -69,13 +69,13 @@ class Ball{
       this.vel.add(this.acc);
     }
     if(this.id < 0){
-      if(distToRepellerballball < 250){
+      if(distToRepellerballball < 300){
         //add attraction
         this.acc = p5.Vector.sub(repellerBall.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }
-      if(distToRepellerballball < 150){
+      if(distToRepellerballball < 100){
         //add repulsion
         this.acc = p5.Vector.sub(this.loc, repellerBall.loc);
         this.acc.normalize();
@@ -84,6 +84,5 @@ class Ball{
       this.vel.add(this.acc);
     }
     this.loc.add(this.vel);
-    this.vel.limit(5);
   }//update end
 }//Class end

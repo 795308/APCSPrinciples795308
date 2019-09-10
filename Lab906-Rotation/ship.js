@@ -4,7 +4,6 @@ class Ship{
     this.vel = createVector(dx, dy);
     this.acc = createVector(0);
     this.clr = color(random(255),random(255),random(255));
-    this.angle = 0;
     this.id = id;
   }
   run(){
@@ -13,11 +12,12 @@ class Ship{
     this.update();
   }
   render(){
+    this.heading = this.vel.heading();
     fill(this.clr);
     this.angle = this.angle + 0.1
     push();
       translate(this.loc.x, this.loc.y);
-      rotate(this.angle);
+      rotate(this.heading + 1.5);
       triangle(-5,8,5,8,0,-8)
     pop();
   }
@@ -36,6 +36,27 @@ class Ship{
       }
   }
   update(){
-    this.loc.add(this.vel)
+    var distToAttractorball;
+    var distToRepellerballball;
+    distToAttractorball = this.loc.dist(attractorBall.loc);
+    distToRepellerballball = this.loc.dist(repellerBall.loc);
+    if(this.id >= 0){
+      if(distToAttractorball < 250){
+        //add attraction
+        this.acc = p5.Vector.sub(attractorBall.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.1);
+      }
+      if(distToRepellerballball < 150){
+        //add repulsion
+        this.acc = p5.Vector.sub(this.loc, repellerBall.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+      this.vel.add(this.acc);
+    }
+    this.vel.add(this.acc);
+    this.loc.add(this.vel);
+    this.vel.limit(5);
   }
 }

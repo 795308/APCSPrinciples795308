@@ -1,3 +1,4 @@
+var isColliding = true
 class Ball{
   constructor(x,y,dx,dy){
     this.loc = createVector(x, y);
@@ -28,12 +29,12 @@ class Ball{
     if(this.loc.y > height){
       this.vel.y = -this.vel.y
     }
+    if (this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + paddle.w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + paddle.h) {
+      this.vel.y = -this.vel.x
+    }
   }//checkEdges end
   update(){
     this.vel.add(this.acc);
     this.loc.add(this.vel);
   }//update end
-  function isColliding(){
-    if(this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + paddle.w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + paddle.h)
-  }
 }//Class end

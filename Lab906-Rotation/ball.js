@@ -54,7 +54,7 @@ class Ball{
       this.vel.add(this.acc);
     }
     if(this.id < 0){
-      if(distToAttractorball < 300){
+      if(distToAttractorball < 400){
         //add attraction
         this.acc = p5.Vector.sub(attractorBall.loc, this.loc);
         this.acc.normalize();

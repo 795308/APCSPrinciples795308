@@ -9,7 +9,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadObjects(5);
+  loadObjects(1);//How many Balls there are
 
 
 }
@@ -18,11 +18,11 @@ function setup() {
 function draw() {
   background(5, 5, 5, 20);
   runObjects();
-}
+}//draws the functions
 function loadObjects(n){
   paddle = new Paddle(350, 600);
   for(var i = 0; i < n; i++){
-    balls[i] = new Ball(random(width), random(height), random(-1, 1), random(-1, 1));
+    balls[i] = new Ball(random(width), random(0, 400), random(-5, 5), random(-5, 5));
   }
 }//loads balls into array
 function runObjects(){

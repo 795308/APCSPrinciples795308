@@ -4,7 +4,6 @@ class Paddle{
     this.w = 150
     this.h = 20
     this.clr = color(127);
-    this.score = 0
   }//constructor end
   run(){
     this.render();
@@ -18,6 +17,8 @@ class Paddle{
   update(){
     var mouseLoc = createVector(mouseX, this.loc.y);
     this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
+    textSize(32);
+    text("Score = " + score, 10, 30);
   }//moves paddle to mouseX
   checkEdges(){
     if(this.loc.x < -1){

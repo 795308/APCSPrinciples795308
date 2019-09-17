@@ -31,7 +31,7 @@ class Ball{
     }
     if(this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + paddle.w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + paddle.h){
       this.vel.y = -this.vel.y
-      paddle.score = paddle.score + 1
+      score = score + 1
     }
     if(this.loc.y > 820){
       this.loc.y = 1

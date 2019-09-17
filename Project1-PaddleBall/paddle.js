@@ -11,12 +11,14 @@ class Paddle{
     this.checkEdges();
   }
   render(){
+    rectMode(CORNER);
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
   }//creates paddle object
   update(){
     var mouseLoc = createVector(mouseX, this.loc.y);
     this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
+    textAlign(LEFT);
     textSize(32);
     text("Score = " + score, 10, 30);
   }//moves paddle to mouseX

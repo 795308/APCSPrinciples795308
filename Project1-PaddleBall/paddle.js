@@ -4,6 +4,7 @@ class Paddle{
     this.w = 150
     this.h = 20
     this.clr = color(127);
+    this.score = 0
   }//constructor end
   run(){
     this.render();
@@ -15,7 +16,7 @@ class Paddle{
     rect(this.loc.x, this.loc.y, this.w, this.h);
   }//creates paddle object
   update(){
-    var mouseLoc = createVector(ball.loc.x - this.w/2, this.loc.y);
+    var mouseLoc = createVector(mouseX, this.loc.y);
     this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
   }//moves paddle to mouseX
   checkEdges(){

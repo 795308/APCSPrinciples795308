@@ -50,6 +50,8 @@ class Ball{
         balls.splice(i, 1);
         if(this.loc.y <= 610){
           score = score + 1
+        }else if (this.loc.y >= 610) {
+          health = health - 1
         }
       }
     }

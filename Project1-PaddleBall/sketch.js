@@ -8,12 +8,12 @@ var score = 0
 var gameState = 1
 var buttons = []
 var n = 1
+var health = 20
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadObjects(n);//How many Balls there are
 
 
 }
@@ -39,6 +39,10 @@ function loadObjects(n){
 }//loads balls into array
 function runObjects(){
   paddle.run();
+  if(balls.length === 0){
+    loadObjects(n)
+    n = n + 2
+  }
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }
@@ -46,8 +50,12 @@ function runObjects(){
 function playGame(){
   background(5, 5, 5, 20);
   runObjects();
+  if(health === 0){
+    gameState = 3
+  }
 }//plays the game
 function startGame(){
+  loadObjects(0)
   for(var i = 0; i < buttons.length; i++){
     buttons[i].run();
   }

@@ -39,16 +39,16 @@ class Button{
       this.x = 600
       this.clr = color(255, 0, 0);
       this.text = "Hard"
-    }
+    }//defines location, text, and color of the button based on id number
   }
   mouseCheck(){
     if(mouseX > this.x - this.w/2 && mouseX < this.x + this.w/2 && mouseY > this.y - this.h/2 && mouseY < this.y + this.h/2){
       this.textclr = this.clr
     }else {
       this.textclr = color(0);
-    }
+    }//checks if mouse is hovering over a button to remove the text
     if(mouseX > this.x - this.w/2 && mouseX < this.x + this.w/2 && mouseY > this.y - this.h/2 && mouseY < this.y + this.h/2 && mouseIsPressed){
       gameState = 2
-    }
+    }//starts the game when a button is pressed
   }
 }

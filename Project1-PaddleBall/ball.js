@@ -43,13 +43,15 @@ class Ball{
     if(this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + paddle.w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + paddle.h){
       return true
     }
-  }
+  }//checks if the ball is colliding with the paddle
   remove(){
     for(var i = balls.length -1; i>=0; i--){
       if(balls[i].isColliding()){
         balls.splice(i, 1);
-        score = score + 1
+        if(this.loc.y <= 610){
+          score = score + 1
+        }
       }
     }
-  }
+  }//removes balls that touch the paddle from the array.
 }//Class end

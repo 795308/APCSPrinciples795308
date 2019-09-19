@@ -21,7 +21,7 @@ class Paddle{
     textAlign(LEFT);
     textSize(32);
     text("Score = " + score, 10, 30);
-  }//moves paddle to mouseX
+  }//moves paddle to mouseX, creates score text
   checkEdges(){
     if(this.loc.x < -1){
       this.loc.x = -1

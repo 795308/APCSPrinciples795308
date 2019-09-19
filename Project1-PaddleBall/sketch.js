@@ -7,7 +7,7 @@ var paddle;
 var score = 0
 var gameState = 1
 var buttons = []
-var n = 100
+var n = 1
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -27,7 +27,7 @@ function draw() {
   }else if (gameState === 3) {
     endGame();
   }
-}//draws the functions
+}//draws the functions, changes which based on gameState
 function loadObjects(n){
   paddle = new Paddle(350, 600);
   for(var i = 0; i < n; i++){
@@ -46,9 +46,19 @@ function runObjects(){
 function playGame(){
   background(5, 5, 5, 20);
   runObjects();
-}
+}//plays the game
 function startGame(){
   for(var i = 0; i < buttons.length; i++){
     buttons[i].run();
   }
+  textAlign(CENTER);
+  textSize(60);
+  fill(255);
+  text("PADDLEBALL", 400, 300);
+}//Start screen
+function endGame(){
+  textAlign(CENTER);
+  textSize(100);
+  fill(255, 0, 0);
+  text("YOU LOSE", 400, 400);
 }

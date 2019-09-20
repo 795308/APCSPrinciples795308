@@ -11,7 +11,7 @@ class Paddle{
     this.checkEdges();
   }
   render(){
-    rectMode(CORNER);
+    rectMode(CORNER)
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
   }//creates paddle object

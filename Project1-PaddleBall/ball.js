@@ -48,9 +48,9 @@ class Ball{
     for(var i = balls.length -1; i>=0; i--){
       if(balls[i].isColliding()){
         balls.splice(i, 1);
-        if(this.loc.y <= 610){
+        if(this.vel.y >= 0){
           score = score + 1
-        }else if (this.loc.y >= 610) {
+        }else if (this.vel.y < 0) {
           health = health - 1
         }
       }

@@ -9,6 +9,7 @@ var gameState = 1
 var buttons = []
 var n = 1
 var health = 20
+var difficulty = 0
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -41,7 +42,7 @@ function runObjects(){
   paddle.run();
   if(balls.length === 0){
     loadObjects(n)
-    n = n + 2
+    n = n + difficulty
   }
   for(var i = 0; i < balls.length; i++){
     balls[i].run();

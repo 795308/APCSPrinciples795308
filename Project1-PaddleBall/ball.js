@@ -40,7 +40,7 @@ class Ball{
     this.loc.add(this.vel);
   }//update end
   isColliding(){
-    if(this.loc.x > paddle.loc.x && this.loc.x < paddle.loc.x + paddle.w && this.loc.y > paddle.loc.y && this.loc.y < paddle.loc.y + paddle.h){
+    if(this.loc.x > paddle.loc.x - paddle.w/2 && this.loc.x < paddle.loc.x + paddle.w/2 && this.loc.y > paddle.loc.y - paddle.h/2 && this.loc.y < paddle.loc.y + paddle.h/2){
       return true
     }
   }//checks if the ball is colliding with the paddle

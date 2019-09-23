@@ -22,10 +22,12 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   if(gameState === 1){
+    background(5,5,5);
     startGame();
   }else if (gameState === 2) {
     playGame();
   }else if (gameState === 3) {
+    background(5,5,5, 20);
     endGame();
   }
 }//draws the functions, changes which based on gameState
@@ -34,7 +36,7 @@ function loadObjects(n){
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(0, 400), random(-5, 5), random(-5, 5));
   }
-  for(var i = 0; i < 3; i++){
+  for(var i = 0; i < 4; i++){
     buttons[i] = new Button(i);
   }
 }//loads balls into array
@@ -57,7 +59,7 @@ function playGame(){
 }//plays the game
 function startGame(){
   loadObjects(0)
-  for(var i = 0; i < buttons.length; i++){
+  for(var i = 0; i < 3; i++){
     buttons[i].run();
   }
   textAlign(CENTER);
@@ -70,4 +72,8 @@ function endGame(){
   textSize(100);
   fill(255, 0, 0);
   text("YOU LOSE", 400, 400);
+  textSize(50);
+  fill(255);
+  text("Final Score = " + score, 400, 200);
+  buttons[3].run();
 }

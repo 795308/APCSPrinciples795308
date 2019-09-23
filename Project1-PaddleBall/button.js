@@ -11,6 +11,7 @@ class Button{
     this.ballnumber = 0
     this.startinghealth = 0
     this.difficultyscale = 0
+    this.gotostate = 2
   }
   run(){
     this.idCheck();
@@ -34,7 +35,8 @@ class Button{
       this.text = "Easy"
       this.ballnumber = 1
       this.difficultyscale = 2
-      this.startinghealth = 0
+      this.startinghealth = 20
+      this.gotostate = 2
     }else if (this.id === 1) {
       this.y = 500
       this.x = 400
@@ -42,7 +44,8 @@ class Button{
       this.text = "Medium"
       this.ballnumber = 3
       this.difficultyscale = 3
-      this.startinghealth = 5
+      this.startinghealth = 15
+      this.gotostate = 2
     }else if (this.id === 2) {
       this.y = 500
       this.x = 600
@@ -51,6 +54,16 @@ class Button{
       this.ballnumber = 5
       this.difficultyscale = 4
       this.startinghealth = 10
+      this.gotostate = 2
+    }else if (this.id === 3) {
+      this.y = 700
+      this.x = 400
+      this.clr = color(255);
+      this.text = "Restart?"
+      this.gotostate = 1
+      this.ballnumber = 0
+      this.difficultyscale = 0
+      this.startinghealth = 20
     }//defines location, text, and color of the button based on id number
   }
   mouseCheck(){
@@ -60,9 +73,9 @@ class Button{
       this.textclr = color(0);
     }//checks if mouse is hovering over a button to remove the text
     if(mouseX > this.x - this.w/2 && mouseX < this.x + this.w/2 && mouseY > this.y - this.h/2 && mouseY < this.y + this.h/2 && mouseIsPressed){
-      gameState = 2
+      gameState = this.gotostate
       n = this.ballnumber
-      health = health - this.startinghealth
+      health = this.startinghealth
       difficulty = this.difficultyscale
     }//starts the game when a button is pressed
   }

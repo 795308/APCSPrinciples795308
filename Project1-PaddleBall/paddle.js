@@ -11,7 +11,7 @@ class Paddle{
     this.checkEdges();
   }
   render(){
-    rectMode(CORNER)
+    rectMode(CENTER)
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
   }//creates paddle object
@@ -26,10 +26,10 @@ class Paddle{
     text("Health = " + health, 800, 30);
   }//moves paddle to mouseX, creates score text
   checkEdges(){
-    if(this.loc.x < -1){
-      this.loc.x = -1
+    if(this.loc.x - this.w/2 < -1){
+      this.loc.x = -1 + this.w/2
     }
-    if(this.loc.x + this.w > 801)
-    this.loc.x = 801 - this.w
+    if(this.loc.x + this.w/2 > 801)
+    this.loc.x = 801 - this.w/2
   }//makes it so that paddle can't leave the screen
 }

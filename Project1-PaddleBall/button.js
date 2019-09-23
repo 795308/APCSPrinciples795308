@@ -56,6 +56,13 @@ class Button{
       this.startinghealth = 10
       this.gotostate = 2
     }else if (this.id === 3) {
+      this.y = 600
+      this.x = 400
+      this.clr = color(255);
+      this.text = "Instructions"
+      this.gotostate = 4
+      this.w = 200
+    }else if (this.id === 4) {
       this.y = 700
       this.x = 400
       this.clr = color(255);
@@ -64,6 +71,12 @@ class Button{
       this.ballnumber = 0
       this.difficultyscale = 0
       this.startinghealth = 20
+    }else if (this.id === 5) {
+      this.y = 700
+      this.x = 400
+      this.clr = color(255);
+      this.text = "Back"
+      this.gotostate = 1
     }//defines location, text, and color of the button based on id number
   }
   mouseCheck(){

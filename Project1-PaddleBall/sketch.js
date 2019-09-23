@@ -29,6 +29,9 @@ function draw() {
   }else if (gameState === 3) {
     background(5,5,5, 20);
     endGame();
+  }else if (gameState === 4) {
+    background(5,5,5);
+    instructionScreen();
   }
 }//draws the functions, changes which based on gameState
 function loadObjects(n){
@@ -36,14 +39,14 @@ function loadObjects(n){
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(0, 400), random(-5, 5), random(-5, 5));
   }
-  for(var i = 0; i < 4; i++){
+  for(var i = 0; i < 6; i++){
     buttons[i] = new Button(i);
   }
 }//loads balls into array
 function runObjects(){
   paddle.run();
   if(balls.length === 0){
-    loadObjects(n)
+    loadObjects(n);
     n = n + difficulty
   }
   for(var i = 0; i < balls.length; i++){
@@ -58,8 +61,8 @@ function playGame(){
   }
 }//plays the game
 function startGame(){
-  loadObjects(0)
-  for(var i = 0; i < 3; i++){
+  loadObjects(0);
+  for(var i = 0; i < 4; i++){
     buttons[i].run();
   }
   textAlign(CENTER);
@@ -75,5 +78,20 @@ function endGame(){
   textSize(50);
   fill(255);
   text("Final Score = " + score, 400, 200);
-  buttons[3].run();
+  buttons[4].run();
+}
+function instructionScreen(){
+  buttons[5].run();
+  textAlign(CENTER);
+  textSize(60);
+  fill(255);
+  text("INSTRUCTIONS", 400, 100);
+  textSize(25);
+  text("Catch falling balls with the paddle to gain points", 400, 325);
+  text("Balls hitting the bottom of the paddle make you lose health", 400, 350);
+  text("If you run out of health, you lose", 400, 375);
+  text("Easy starts with 1 ball, 20 health, and gains 2 balls each time", 400, 400);
+  text("Medium starts with 3 balls, 15 health, and gains 3 balls each time", 400, 425);
+  text("Hard starts with 5 balls, 10 health, and gains 4 balls each time", 400, 450);
+  text("Have fun!", 400, 475);
 }

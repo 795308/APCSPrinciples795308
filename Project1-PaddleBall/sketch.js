@@ -23,6 +23,7 @@ function setup() {
 function draw() {
   if(gameState === 1){
     background(5,5,5);
+    score = 0
     startGame();
   }else if (gameState === 2) {
     playGame();
@@ -71,6 +72,7 @@ function startGame(){
   text("PADDLEBALL", 400, 300);
 }//Start screen
 function endGame(){
+  balls.splice(0, balls.length);
   textAlign(CENTER);
   textSize(100);
   fill(255, 0, 0);

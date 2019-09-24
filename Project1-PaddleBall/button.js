@@ -19,7 +19,7 @@ class Button{
     this.mouseCheck();
   }
   render(){
-    rectMode(CENTER)
+    rectMode(CENTER);
     fill(this.clr);
     rect(this.x, this.y, this.w, this.h);
     textAlign(CENTER);

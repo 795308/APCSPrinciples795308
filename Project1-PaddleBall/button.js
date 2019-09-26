@@ -1,17 +1,19 @@
+//  Nico McCarten
+// 	9/26/19
 class Button{
   constructor(id){
-    this.x = 0
-    this.y = 0
-    this.w = 120
-    this.h = 50
-    this.clr = color(255);
-    this.textclr = color(0);
-    this.id = id
-    this.text = "Placeholder"
-    this.ballnumber = 0
-    this.startinghealth = 0
-    this.difficultyscale = 0
-    this.gotostate = 2
+    this.x = 0;//x location
+    this.y = 0;//y location
+    this.w = 120;//width of button
+    this.h = 50;//height of button
+    this.clr = color(255);//color of button
+    this.textclr = color(0);//color of button's text
+    this.id = id;//id of button, assigned by place loaded into array
+    this.text = "Placeholder";//text of button
+    this.ballnumber = 0;//number of balls to be created at the start after a button is pressed
+    this.startinghealth = 0;//number health is set to when a button is pressed
+    this.difficultyscale = 0;//number of additional balls that appear in each iteration of the game
+    this.gotostate = 2;//gameState the button sends you to when pressed
   }
   run(){
     this.idCheck();

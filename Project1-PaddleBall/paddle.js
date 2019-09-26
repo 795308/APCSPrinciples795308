@@ -1,14 +1,16 @@
+//  Nico McCarten
+// 	9/26/19
 class Paddle{
   constructor(x,y){
-    this.loc = createVector(x, y);
-    this.w = 150
-    this.h = 20
-    this.clr = color(127);
+    this.loc = createVector(x, y);//location vector
+    this.w = 150;//width of paddle
+    this.h = 20;//height of paddle
+    this.clr = color(127);//grey color of paddle
   }//constructor end
   run(){
-    this.render();
-    this.update();
-    this.checkEdges();
+    this.render();//makes paddle appear
+    this.update();//moves paddle to mouseX
+    this.checkEdges();//makes sure paddle can not leave the screen
   }
   render(){
     rectMode(CENTER)
@@ -17,19 +19,20 @@ class Paddle{
   }//creates paddle object
   update(){
     var mouseLoc = createVector(mouseX, this.loc.y);
-    this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
+    this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);//moves paddle to mouseX
     textAlign(LEFT);
     textSize(32);
-    text("Score = " + score, 10, 30);
+    text("Score = " + score, 10, 30);//creates score text
     textAlign(RIGHT);
     textSize(32);
-    text("Health = " + health, 800, 30);
-  }//moves paddle to mouseX, creates score text
+    text("Health = " + health, 800, 30);//creates health text
+  }
   checkEdges(){
     if(this.loc.x - this.w/2 < -1){
       this.loc.x = -1 + this.w/2
-    }
-    if(this.loc.x + this.w/2 > 801)
-    this.loc.x = 801 - this.w/2
-  }//makes it so that paddle can't leave the screen
+    }//checks if paddle is leaving the screen to the left and moves it back on
+    if(this.loc.x + this.w/2 > 801){
+      this.loc.x = 801 - this.w/2
+    }//checks if paddle is leaving the screen to the right and moves it back on
+  }
 }

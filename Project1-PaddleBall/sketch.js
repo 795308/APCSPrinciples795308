@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	9/16/19
+// 	9/26/19
 //  This is a comment
 //  The setup function function is called once when your program begins
 var balls = []
@@ -15,73 +15,72 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-
+  loadObjects(0);
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-  if(gameState === 1){
+  if(gameState === 1){//blacks out the screen, and then runs the starting screen
     background(5,5,5);
-    score = 0
+    score = 0;//makes sure that the score is zeroed at the beginning of each game
     startGame();
-  }else if (gameState === 2) {
+  }else if (gameState === 2) {//runs the game itself
     playGame();
-  }else if (gameState === 3) {
+  }else if (gameState === 3) {//runs the loss screen
     background(5,5,5, 20);
     endGame();
-  }else if (gameState === 4) {
+  }else if (gameState === 4) {//runs the instructions screen
     background(5,5,5);
     instructionScreen();
   }
 }//draws the functions, changes which based on gameState
 function loadObjects(n){
-  paddle = new Paddle(350, 600);
+  paddle = new Paddle(350, 600);//loads paddle
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(0, 400), random(-5, 5), random(-5, 5));
-  }
+  }//loads balls into array
   for(var i = 0; i < 6; i++){
     buttons[i] = new Button(i);
-  }
-}//loads balls into array
+  }//loads buttons into array
+}
 function runObjects(){
-  paddle.run();
+  paddle.run();//runs the paddle
   if(balls.length === 0){
     loadObjects(n);
     n = n + difficulty
-  }
+  }//creats a number of balls equal to n, then increases n by 2 every time there are no balls
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
-  }
-}//runs the balls
+  }//runs balls
+}
 function playGame(){
-  background(5, 5, 5, 20);
-  runObjects();
+  background(5, 5, 5, 20);//makes it so that objects fade away, leaving trails.
+  runObjects();//runs runObjects
   if(health === 0){
     gameState = 3
-  }
-}//plays the game
+  }//ends the game if health drops to zero by going to gameState 3
+}//runs during gameState 2
 function startGame(){
-  loadObjects(0);
   for(var i = 0; i < 4; i++){
     buttons[i].run();
-  }
+  }//runs buttons 0 through 3, which are the easy, medium, hard, and instructions buttons
   textAlign(CENTER);
   textSize(60);
   fill(255);
-  text("PADDLEBALL", 400, 300);
-}//Start screen
+  text("PADDLEBALL", 400, 300);//creats the PADDLEBALL text on the start screen
+}//runs during gameState 1
 function endGame(){
-  balls.splice(0, balls.length);
+  balls.splice(0, balls.length);//removes all balls from the array, so there are none carried over into the next game
   textAlign(CENTER);
   textSize(100);
   fill(255, 0, 0);
-  text("YOU LOSE", 400, 400);
+  text("YOU LOSE", 400, 400);//writes a red YOU LOSE on the screen
   textSize(50);
   fill(255);
-  text("Final Score = " + score, 400, 200);
-  buttons[4].run();
-}
+  text("Final Score = " + score, 400, 200);//Shows the final score in white
+  buttons[4].run();//runs the retry button
+}//runs in gameState 3
 function instructionScreen(){
   buttons[5].run();
   textAlign(CENTER);
@@ -95,5 +94,5 @@ function instructionScreen(){
   text("Easy starts with 1 ball, 20 health, and gains 2 balls each time", 400, 400);
   text("Medium starts with 3 balls, 15 health, and gains 3 balls each time", 400, 425);
   text("Hard starts with 5 balls, 10 health, and gains 4 balls each time", 400, 450);
-  text("Have fun!", 400, 475);
-}
+  text("Have fun!", 400, 475);//writes the instructions on how to play the game
+}//runs in gameState 4

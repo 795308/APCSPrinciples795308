@@ -22,9 +22,11 @@ class Paddle{
     this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);//moves paddle to mouseX
     textAlign(LEFT);
     textSize(32);
+    fill(255);
     text("Score = " + score, 10, 30);//creates score text
     textAlign(RIGHT);
     textSize(32);
+    fill(255,0,0)
     text("Health = " + health, 800, 30);//creates health text
   }
   checkEdges(){

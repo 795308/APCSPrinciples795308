@@ -42,9 +42,14 @@ class Ball{//creates the ball class, which creates the bouncing balls
     this.loc.add(this.vel);//makes the ball move
   }//update end
   isColliding(){
-    if(this.loc.x > paddle.loc.x - paddle.w/2 && this.loc.x < paddle.loc.x + paddle.w/2 && this.loc.y > paddle.loc.y - paddle.h/2 && this.loc.y < paddle.loc.y + paddle.h/2){
-      return true
-    }
+    if(this.loc.x > paddle.loc.x - paddle.w/2 &&
+      this.loc.x < paddle.loc.x + paddle.w/2 &&
+      this.loc.y > paddle.loc.y - paddle.h/2 &&
+      this.loc.y < paddle.loc.y + paddle.h/2)
+      {
+        console.log("hit detected");
+        return true
+       }
   }//checks if the ball is colliding with the paddle
   remove(){
     for(var i = balls.length -1; i>=0; i--){

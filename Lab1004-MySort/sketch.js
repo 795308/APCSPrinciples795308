@@ -8,25 +8,23 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-
+  for(var i = 0; i < list.length-1; i++){
+    console.log(list[i]);
+  }
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-  for(var i = 0; i < list.length; i++){
-    if(list[0]>list[1] && list[1]>list[2] && list[2]>list[3] && list[3]>list[4]){
-      break;
-    }else {
-      console.log(list[i]);
-    }
-  }//displays array
   for(var i = 0; i < list.length-1; i++){
+    if(list[0]<list[1] && list[1]<list[2] && list[2]<list[3] && list[3]<list[4]){
+      break;
+    }//stops program if array is sorted
     if(list[i]>list[i+1]){
       swap(list, i, i+1)
-    }
-    if(list[0]>list[1] && list[1]>list[2] && list[2]>list[3] && list[3]>list[4]){
-      break;
+    }//swaps positions if one is greater than the other
+    for(var i = 0; i < list.length-1; i++){
+      console.log(list[i]);
     }
   }
 }

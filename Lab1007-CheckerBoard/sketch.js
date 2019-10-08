@@ -27,7 +27,8 @@ function setup() {
 
 function loadSquares(){
   for(var i = 0; i < 8; i++){
-    squares[i] = new Square(i * 100, i);
+    for(var j = 0; j < 8; j++)
+      squares[j] = new Square(j * 100, i * 100, i);
   }//loads squares into array
   //  create a loop that will push 64 squares into an array
   //  calculate the x and y position interms of the loop control variable

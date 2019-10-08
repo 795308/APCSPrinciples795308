@@ -1,15 +1,14 @@
 // Nico McCarten
 // 10/7/19
 class Square{
-  constructor(x, id){
-    this.x = 0;
-    this.y = 0
+  constructor(x, y, id){
+    this.x = x;
+    this.y = y;
     this.w = 100
     this.clr = color(255);
     this.id = id;
   }
   run(){
-    this.idCheck();
     this.render();
   }
   render(){

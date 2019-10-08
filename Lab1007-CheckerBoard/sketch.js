@@ -7,7 +7,7 @@
 
 //  Global variables
 var squares = []// Declare squares[] as a global variable
-
+var sN = 0;
 
 // put setup code here
 function setup() {
@@ -27,8 +27,10 @@ function setup() {
 
 function loadSquares(){
   for(var i = 0; i < 8; i++){
-    for(var j = 0; j < 8; j++)
-      squares[j*i] = new Square(j * 100, i * 100, j);
+    for(var j = 0; j < 8; j++){
+      squares[sN] = new Square(j * 100, i * 100, sN);
+      sN = sN + 1;
+    }
   }//loads squares into array
   //  create a loop that will push 64 squares into an array
   //  calculate the x and y position interms of the loop control variable

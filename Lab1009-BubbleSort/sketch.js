@@ -2,7 +2,7 @@
 // 	10/9/19
 //  This is a comment
 //  The setup function function is called once when your program begins
-var list = [6,3,1,2,4,5]
+var list = [6,3,5,2,4,8,7,10,18,19,14,1]
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -13,9 +13,11 @@ function setup() {
 }
 
 function BubbleSort(){
-  for(var i = 0; i < list.length-1; i++){
-    if(list[i] > list[i+1]){
-      swap(list, i, i+1)
+  for(var j = 0; j < list.length-1; j++){
+    for(var i = 0; i < list.length-1; i++){
+      if(list[i] > list[i+1]){
+        swap(list, i, i+1)
+      }
     }
   }
 }

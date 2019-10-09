@@ -28,7 +28,7 @@ function setup() {
 function loadSquares(){
   for(var i = 0; i < 8; i++){
     for(var j = 0; j < 8; j++){
-      squares[sN] = new Square(j * 100, i * 100, sN);
+      squares[sN] = new Square(j * 100, i * 100, j, i);
       sN = sN + 1;
     }
   }//loads squares into array

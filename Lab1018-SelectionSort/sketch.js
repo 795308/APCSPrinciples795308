@@ -8,12 +8,12 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(var i = 0; i < 10; i++){
+  for(var i = 0; i < 2500; i++){
   list[i] = i;
 }
 shuffle(list, true);
 console.log(list);
-InsertionSort();
+SelectionSort();
 
 }
 
@@ -23,13 +23,17 @@ function swap(list, a, b){
   list[b] = temp;
 }
 
-function InsertionSort(){
+function SelectionSort(){
   for(var j = 0; j < list.length-1; j++){
-    for(var i = j; i >= 0; i--){
-      if(list[i] < list[i-1]){
-        swap(list, list[i], list[i-1]);
+    var loc = j;
+    for(var i = j+1; i < list.length; i++){
+      if(list[i] < list[loc]){
+        loc = j;
       }
     }
+    var number = list[loc];
+    list[loc] = list[i];
+    list[i] = number
     console.log(" ");
     console.log(list);
   }

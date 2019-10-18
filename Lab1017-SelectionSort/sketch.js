@@ -8,7 +8,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(var i = 0; i < 2500; i++){
+  for(var i = 0; i < 10; i++){
   list[i] = i;
 }
 shuffle(list, true);
@@ -25,8 +25,12 @@ function swap(list, a, b){
 
 function InsertionSort(){
   for(var j = 0; j < list.length-1; j++){
-    for(var i = j; i > 0; i--){
-      if(list[i] )
+    for(var i = j; i >= 0; i--){
+      if(list[i] < list[i-1]){
+        swap(list, list[i], list[i-1]);
+      }
     }
+    console.log(" ");
+    console.log(list);
   }
 }

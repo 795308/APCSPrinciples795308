@@ -12,9 +12,8 @@ function setup() {
   list[i] = i;
 }
 shuffle(list, true);
-console.log(list);
 SelectionSort();
-
+console.log(list);
 }
 
 function swap(list, a, b){
@@ -24,17 +23,15 @@ function swap(list, a, b){
 }
 
 function SelectionSort(){
-  for(var j = 0; j < list.length-1; j++){
-    var loc = j;
-    for(var i = j+1; i < list.length; i++){
-      if(list[i] < list[loc]){
-        loc = j;
+  for(var i = 0; i < list.length-1; i++){
+    var index = i;
+    for(var j = i+1; j < list.length; j++){
+      if(list[j] < list[index]){
+        index = j;
       }
     }
-    var number = list[loc];
-    list[loc] = list[i];
-    list[i] = number
-    console.log(" ");
-    console.log(list);
+    var number = list[index];
+    list[index] = list[i];
+    list[i] = number;
   }
 }

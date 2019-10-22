@@ -3,6 +3,7 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var list = [];//Array containing the numbers
+var bars = [];//Array containing Bars
 var comps = 0;
 var swaps = 0;
 var t = 0;
@@ -11,12 +12,18 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  for(var i = 0; i < 2500; i++){
-    list[i] = i;
+  for(var i = 0; i < 80; i++){
+    bars[i] = new Bar(i, i);
   }
-  selectionSort();
-  bubbleSort();
-  insertionSort();
+  //selectionSort();
+  //bubbleSort();
+  //insertionSort();
+}
+
+function draw() {
+  for(var i = 0; i < bars.length; i++){
+    bars[i].run();
+  }
 }
 
 function swap(list, a, b){

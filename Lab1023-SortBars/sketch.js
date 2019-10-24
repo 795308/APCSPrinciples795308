@@ -6,7 +6,7 @@ var bars = [];//Array containing Bars
 var comps = 0;
 var swaps = 0;
 var t = 0;
-var barnum = 2
+var barnum = 80
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -16,7 +16,7 @@ function setup() {
     bars[i] = new Bar(i, i);
   }
   //selectionSort();
-  //bubbleSort();
+  bubbleSort();
   //insertionSort();
 }
 
@@ -26,10 +26,10 @@ function draw() {
   }
 }
 
-function swap(list, a, b){
-  var temp = list[a];
-  list[a] = list[b];
-  list[b] = temp;
+function swap(bars, a, b){
+  var temp = bars[a];
+  bars[a] = bars[b];
+  bars[b] = temp;
   swaps = swaps + 1;
 }
 
@@ -85,20 +85,20 @@ function insertionSort(){
 function bubbleSort(){
   shuffle(bars, true);
   console.log("Bubble Sort");
-  console.log(list);
+  console.log(bars);
   t = millis();
   comps = 0;
   swaps = 0;
   for(var j = 0; j < bars.length-1; j++){
     for(var i = 0; i < bars.length-1-j; i++){
       comps = comps + 1;
-      if(list[i] > list[i+1]){
-        swap(list, i, i+1);
+      if(bars[i] > bars[i+1]){
+        swap(bars, i, i+1);
       }
     }
   }
   t = millis() - t;
-  console.log(list);
+  console.log(bars);
   console.log("Swaps = " + swaps);
   console.log("Comps = " + comps);
   console.log("Time = " + t);

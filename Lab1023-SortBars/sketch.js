@@ -14,13 +14,11 @@ function setup() {
   loadBars(numBars);
   runBars();
   shuffle(bars, true);
+  bubbleSort();
 }
 
 function draw() {
-  background(5, 5, 5);
-  frameRate(1000);
-  runBars();
-  bubbleSort();
+
 }
 
 function loadBars(num){
@@ -49,6 +47,9 @@ function bubbleSort(){
       if(bars[j].h > bars[j+1].h){
         swap(bars, j, j+1);
       }
+      background(5, 5, 5);
+      frameRate(1);
+      runBars();
     }
   }
 }

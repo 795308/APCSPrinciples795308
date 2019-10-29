@@ -3,22 +3,31 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var bars = [];//Array containing Bars
-var numbars, barWidth;
-var t2;
+var numBars = 80
+var rectX = 0;
+var horizLoc = [];
+var heights = [];
 function setup() {
+  frameRate(100);
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
-  fill(200, 30, 150);
-  barWidth = 10;
-  numBars = width/barWidth
-  loadBars(numBars);
-  runBars();
-  shuffle(bars, true);
-  insertionSort();
+  for (n = 0; n < numBars)
 }
 
 function draw() {
+  //frameRate(30);
+  if (j < numBars){
+    i = j
+    if(i > 0){
+      if(bars[i].h < bars[i-1].h){
+        swap(bars, i , i-1);
+        runBars();
+      }
+      i--;
+    }
+    j++;
+  }
 }
 
 function loadBars(num){
@@ -40,17 +49,4 @@ function swap(bars, a, b){
   var temp = bars[a].loc.x;
   bars[a].loc.x = bars[b].loc.x;
   bars[b].loc.x = temp;
-}
-
-function insertionSort(){
-  for(var j = 0; j < numBars; j++){
-    for(var i = j; i > 0; i--){
-      t1 = millis();
-      for(var t = millis(); t - t2 === 100; t = t2)
-        if(bars[i].h < bars[i-1].h){
-          swap(bars, i, i-1);
-          runBars();
-      }
-    }
-  }
 }

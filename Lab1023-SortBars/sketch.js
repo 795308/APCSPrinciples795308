@@ -4,7 +4,6 @@
 //  The setup function function is called once when your program begins
 var bars = [];//Array containing Bars
 var numbars, barWidth;
-var t1;
 var t2;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -47,10 +46,10 @@ function insertionSort(){
   for(var j = 0; j < numBars; j++){
     for(var i = j; i > 0; i--){
       t1 = millis();
-      if(bars[i].h < bars[i-1].h && t1 - t2 === 10){
-        t2 = millis();
-        swap(bars, i, i-1);
-        runBars();
+      for(var t = millis(); t - t2 === 100; t = t2)
+        if(bars[i].h < bars[i-1].h){
+          swap(bars, i, i-1);
+          runBars();
       }
     }
   }

@@ -11,4 +11,7 @@ class Bar{
     fill(255);
     rect(this.loc.x, this.loc.y, this.w, this.h);
   }
+  set(i){
+    this.loc.x = i*barWidth;
+  }
 }

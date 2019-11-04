@@ -11,10 +11,10 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-  barWidth = 10;
+  barWidth = 2;
   numBars = width/barWidth
   loadBars(numBars);
-  frameRate(30);
+  frameRate(100);
   for(var i = 0; i < bars.length; i++){
     bars[i].run();
   }

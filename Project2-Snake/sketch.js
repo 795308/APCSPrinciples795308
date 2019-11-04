@@ -27,7 +27,8 @@ function draw() {
     background(5,5,5);
     runObjects();
   }else if (gameState === 3) {
-
+    textAlign(CENTER);
+    text("YOU LOSE", 400, 400);
   }
 }
 

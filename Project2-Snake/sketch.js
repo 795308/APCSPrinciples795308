@@ -34,6 +34,9 @@ function draw() {
 
 function runObjects(){
   snake.run();
+  for(var i = 0; i < snake.body.length; i++){
+    snake.body[i].run();
+  }
   food.run();
 }
 

@@ -9,7 +9,7 @@ class Body{
   }
   run(){
     this.update();
-    this.tangle();
+    //this.tangle();
     this.render();
   }
   render(){

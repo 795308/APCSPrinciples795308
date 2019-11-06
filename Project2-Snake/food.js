@@ -14,9 +14,9 @@ class Food{
     rect(this.loc.x*w, this.loc.y*w, w, w)
   }
   update(){
-    if(snake.loc.x === this.loc.x && snake.loc.y === this.loc.y){
-      this.loc.x = Math.floor(random(0,79))
-      this.loc.y = Math.floor(random(0,79))
+    if(snake.head.x === this.loc.x && snake.head.y === this.loc.y){
+      this.loc.x = Math.floor(random(0,79));
+      this.loc.y = Math.floor(random(0,79));
     }
   }
 }

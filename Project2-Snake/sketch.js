@@ -18,10 +18,10 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-  frameRate(15)
+  frameRate(15);
   if(gameState === 1){
     if(keyIsPressed === true){
-      gameState = 2
+      gameState = 2;
     }
   }else if (gameState === 2) {
     background(5,5,5);
@@ -34,13 +34,10 @@ function draw() {
 
 function runObjects(){
   snake.run();
-  for(var i = 0; i < snake.body.length; i++){
-    snake.body[i].run();
-  }
   food.run();
 }
 
 function loadObjects(){
   snake = new Snake();
-  food = new Food(Math.floor(random(0,79)), Math.floor(random(0,79)))
+  food = new Food(Math.floor(random(0,79)), Math.floor(random(0,79)));
 }

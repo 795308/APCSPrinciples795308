@@ -35,8 +35,17 @@ class Snake{
       this.vel.y = 0;
     }
     //update the body
-    this.body[0].x = this.head.x;
-    this.body[0].y = this.head.y;
+    if(this.body.length >= 1){
+      for(var i = 0; i < this.body.length; i++){
+        if(i === 0){
+          this.body[i].x = this.head.x;
+          this.body[i].y = this.head.y;
+        }else {
+          this.body[i].x = this.body[i-1].x;
+          this.body[i].y = this.body[i-1].y;
+        }
+      }
+    }
     //update the head
     this.head.add(this.vel);
   }

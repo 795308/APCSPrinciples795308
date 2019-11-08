@@ -36,14 +36,13 @@ class Snake{
     }
     //update the body
     if(this.body.length >= 1){
-      for(var i = this.body.length-1; i < 0; i--){
+      for(var i = this.body.length-1; i >= 0; i--){
         if(i < 1){
-          this.body[i].x = this.head.x;
-          this.body[i].y = this.head.y;
-        }else {
+          this.body[0].x = this.head.x;
+          this.body[0].y = this.head.y;
+        }else if (i >= 1) {
           this.body[i].x = this.body[i-1].x;
           this.body[i].y = this.body[i-1].y;
-          console.log("done");
         }
       }
     }
@@ -51,11 +50,11 @@ class Snake{
     this.head.add(this.vel);
   }
   tangle(){
-    if(this.head.x >= 80){
+    if(this.head.x >= width/w){
       gameState = 3;
     }else if (this.head.x < 0) {
       gameState = 3;
-    }else if (this.head.y >= 80) {
+    }else if (this.head.y >= height/w) {
       gameState = 3;
     }else if (this.head.y < 0) {
       gameState = 3;
@@ -70,6 +69,6 @@ class Snake{
     }
   }
   createSegment(){
-    this.body.push(createVector(0,0));
+    this.body.push(createVector(-1, -1));
   }
 }

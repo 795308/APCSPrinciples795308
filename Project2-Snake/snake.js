@@ -36,7 +36,7 @@ class Snake{
     }
     //update the body
     if(this.body.length >= 1){
-      for(var i = 0; i < this.body.length; i++){
+      for(var i = this.body.length-1; i < 0; i--){
         if(i < 1){
           this.body[i].x = this.head.x;
           this.body[i].y = this.head.y;

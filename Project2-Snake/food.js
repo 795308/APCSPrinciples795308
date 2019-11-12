@@ -6,6 +6,7 @@ class Food{
     this.clr = color(255, 0, 0);//color of food
   }
   run(){
+    this.inSnake();
     this.update();
     this.render();
   }//run end
@@ -14,9 +15,19 @@ class Food{
     rect(this.loc.x*w, this.loc.y*w, w, w);//renders food
   }//render end
   update(){
-    if(snake.head.x === this.loc.x && snake.head.y === this.loc.y){
+    while(this.inSnake() === true){
       this.loc.x = Math.floor(random(width/w - 1));
       this.loc.y = Math.floor(random(width/w - 1));
-    }//moves food to random location if snake head touches it
+    }//moves food to a random location if it is in the snake without increasing the snake's size
   }//update end
+  inSnake(){
+    if(snake.head.x === this.loc.x && snake.head.y === this.loc.y){
+      return true
+    }//returns true if the food is on the snake's head
+    for(var i = 0; i < snake.body.length; i++){//goes through entire body array to check for collisions.
+      if(this.loc.x === snake.body[i].x && this.loc.y === snake.body[i].y){
+        return true
+      }//returns true if the food is on any of the body segments of the snake
+    }
+  }//inSnake end
 }//Food end

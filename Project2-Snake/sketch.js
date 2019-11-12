@@ -4,9 +4,8 @@
 //  The setup function function is called once when your program begins
 var gameState = 1;//controls gameState
 var snake;//the snake
-var food;//the food
-var score = 0;//the score
-var w = 50;//the width of the grid boxes
+var food;//the foo
+var w = 25;//the width of the grid boxes
 var header_height;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -26,9 +25,18 @@ function draw() {
   }else if (gameState === 2) {
     background(5,5,5);
     runObjects();//runs the game
+    fill(255);
+    textSize(25);
+    text("Score = " + snake.body.length, 10, 30);
   }else if (gameState === 3) {
+    background (5,5,5,20);
     textAlign(CENTER);
+    fill(255,0,0);
+    textSize(50)
     text("YOU LOSE", 400, 400);//stops the game on tangling
+    fill(255);
+    textSize(40);
+    text("FINAL SCORE = " + snake.body.length, 400, 300);
   }
 }
 

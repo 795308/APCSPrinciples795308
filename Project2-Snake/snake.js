@@ -20,16 +20,16 @@ class Snake{
     }//renders the body segments
   }//render end
   update(){
-    if(keyCode === 65){
+    if(keyCode === 65 && this.vel.x ==! 1){
       this.vel.x = -1;//makes snake go left when a is pressed
       this.vel.y = 0;//makes snake not go diagonal
-    }else if (keyCode === 87) {
+    }else if (keyCode === 87 && this.vel.y ==! 1) {
       this.vel.y = -1;//makes snake go down when s is pressed
       this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyCode === 83) {
+    }else if (keyCode === 83 && this.vel.y ==! -1) {
       this.vel.y = 1;//makes snake go up when w is pressed
       this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyCode === 68) {
+    }else if (keyCode === 68 && this.vel.x ==! -1) {
       this.vel.x = 1;//makes snake go right when d is pressed
       this.vel.y = 0;//makes snake not go diagonal
     }

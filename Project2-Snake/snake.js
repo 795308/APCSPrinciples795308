@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/4/19
+// 	11/13/19
 class Snake{
   constructor(){
     this.head = createVector(height/w/2, width/w/2);//location of the head
@@ -14,6 +14,7 @@ class Snake{
   }//run end
   render(){
     fill(this.clr);//makes this.clr the color of the snake
+    rectMode(CORNER);
     rect(this.head.x*w, this.head.y*w, w, w);//creates a snake as if it is a single point on a 80 by 80 grid, rather than a 10 by 10 square on an 800 by 800 grid
     for(var i = 0; i < this.body.length; i++){
       rect(this.body[i].x*w, this.body[i].y*w, w, w);

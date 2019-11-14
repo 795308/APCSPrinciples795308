@@ -14,7 +14,7 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   loadObjects();//loads everything when the game starts
-  frameRate(10);
+  frameRate(15);
 }
 
 //  The draw function is called @ 30 fps
@@ -30,8 +30,6 @@ function draw() {
     buttons[1].run();//runs instructions buttons
     snake.head.x = width/w/2;//resets snake head location to center
     snake.head.y = height/w/2;
-    snake.vel.x = 0;//resets snake velocity to zero
-    snake.vel.y = 0;
   }else if (gameState === 2) {
     background(5,5,5);
     runObjects();//runs the snake and food

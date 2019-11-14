@@ -21,16 +21,16 @@ class Snake{
     }//renders the body segments
   }//render end
   update(){
-    if(keyCode === 65 && this.vel.x ==! 1){
+    if(keyIsDown(65) && this.vel.x ==! 1){
       this.vel.x = -1;//makes snake go left when a is pressed
       this.vel.y = 0;//makes snake not go diagonal
-    }else if (keyCode === 87 && this.vel.y ==! 1) {
+    }else if (keyIsDown(87) && this.vel.y ==! 1) {
       this.vel.y = -1;//makes snake go down when s is pressed
       this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyCode === 83 && this.vel.y ==! -1) {
+    }else if (keyIsDown(83) && this.vel.y ==! -1) {
       this.vel.y = 1;//makes snake go up when w is pressed
       this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyCode === 68 && this.vel.x ==! -1) {
+    }else if (keyIsDown(68) && this.vel.x ==! -1) {
       this.vel.x = 1;//makes snake go right when d is pressed
       this.vel.y = 0;//makes snake not go diagonal
     }
@@ -52,16 +52,26 @@ class Snake{
   tangle(){
     if(this.head.x >= width/w){
       gameState = 3;
+      snake.vel.x = 0;//resets snake velocity to zero
+      snake.vel.y = 0;
     }else if (this.head.x < 0) {
       gameState = 3;
+      snake.vel.x = 0;//resets snake velocity to zero
+      snake.vel.y = 0;
     }else if (this.head.y >= height/w) {
       gameState = 3;
+      snake.vel.x = 0;//resets snake velocity to zero
+      snake.vel.y = 0;
     }else if (this.head.y < 0) {
       gameState = 3;
+      snake.vel.x = 0;//resets snake velocity to zero
+      snake.vel.y = 0;
     }//ends game if snake leaves the screen
     for(var i = 0; i < this.body.length; i++){//goes through entire body array to check for collisions.
       if(this.head.x === this.body[i].x && this.head.y === this.body[i].y){
         gameState = 3;
+        snake.vel.x = 0;//resets snake velocity to zero
+        snake.vel.y = 0;
       }//ends game if snake hits hits its body
     }
     if(this.head.x === food.loc.x && this.head.y === food.loc.y){

@@ -21,24 +21,24 @@ function setup() {
 function draw() {
   if(gameState === 1){
     background(5,5,5);
-    snake.body.splice(0, snake.body.length);
+    snake.body.splice(0, snake.body.length);//removes snake body if any exists
     fill(255);
     textSize(100);
     textAlign(CENTER);
-    text("SNAKE", 400, 300)
-    buttons[0].run();
-    buttons[1].run();
-    snake.head.x = width/w/2;
+    text("SNAKE", 400, 300);//displays game name
+    buttons[0].run();//runs start button
+    buttons[1].run();//runs instructions buttons
+    snake.head.x = width/w/2;//resets snake head location to center
     snake.head.y = height/w/2;
-    snake.vel.x = 0;
+    snake.vel.x = 0;//resets snake velocity to zero
     snake.vel.y = 0;
   }else if (gameState === 2) {
     background(5,5,5);
-    runObjects();//runs the game
+    runObjects();//runs the snake and food
     fill(255);
-    textAlign(LEFT)
+    textAlign(LEFT);
     textSize(25);
-    text("Score = " + snake.body.length, 10, 30);
+    text("Score = " + snake.body.length, 10, 30);//display score;
   }else if (gameState === 3) {
     background (5,5,5,20);
     textAlign(CENTER);
@@ -47,11 +47,11 @@ function draw() {
     text("YOU LOSE", 400, 400);//stops the game on tangling
     fill(255);
     textSize(40);
-    text("FINAL SCORE = " + snake.body.length, 400, 300);
-    buttons[2].run();
+    text("FINAL SCORE = " + snake.body.length, 400, 300);//displays length of snake at end
+    buttons[2].run();//runs replay button
   }else if (gameState === 4) {
     background(5,5,5);
-    buttons[3].run();
+    buttons[3].run();//runs back button
     textAlign(CENTER);
     textSize(60);
     fill(255);
@@ -61,7 +61,7 @@ function draw() {
     text("The snake is the blue square, and the food is the red square", 400, 375);
     text("If the snake leaves the screen or hits itself you lose", 400, 400);
     text("Use the w, a, s, and d keys to navigate", 400, 425);
-    text("Have fun!", 400, 450);
+    text("Have fun!", 400, 450);//displays instructions
   }
 }
 

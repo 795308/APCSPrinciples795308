@@ -13,6 +13,7 @@ class Food{
   render(){
     fill(this.clr);//colors food
     rect(this.loc.x*w, this.loc.y*w, w, w);//renders food
+    image(img, this.loc.x*w, this.loc.y*w, w, w);
   }//render end
   update(){
     while(this.inSnake() === true){

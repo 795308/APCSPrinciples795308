@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/13/19
+// 	11/14/19
 //  This is a comment
 //  The setup function function is called once when your program begins
 var gameState = 1;//controls gameState
@@ -7,7 +7,7 @@ var snake;//the snake
 var food;//the foo
 var w = 25;//the width of the grid boxes
 var header_height;
-var buttons = [];
+var buttons = [];//the array of buttons
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);

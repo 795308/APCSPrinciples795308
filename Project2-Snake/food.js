@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/13/19
+// 	11/14/19
 class Food{
   constructor(x, y){
     this.loc = createVector(x, y);//location of food

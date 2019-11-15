@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/13/19
+// 	11/14/19
 class Button{
   constructor(id){
     this.x = 0;//x location
@@ -52,7 +52,7 @@ class Button{
       this.clr = color(255);
       this.text = "Back";
       this.gotostate = 1;
-    }//defines location, text, and color of the button based on id number
+    }//defines location, text, and color of the button based on id number, as well as the gamestate they send you to
   }
   mouseCheck(){
     if(mouseX > this.x - this.w/2 && mouseX < this.x + this.w/2 && mouseY > this.y - this.h/2 && mouseY < this.y + this.h/2){

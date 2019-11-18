@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/14/19
+// 	11/17/19
 //  This is a comment
 //  The setup function function is called once when your program begins
 var img;

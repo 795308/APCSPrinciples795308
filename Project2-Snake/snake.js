@@ -48,6 +48,9 @@ class Snake{
     }
     //update the head
     this.head.add(this.vel);//moves the head
+    if(this.tangle() === true){
+      
+    }
   }
   tangle(){
     if(this.head.x >= width/w){

@@ -3,7 +3,7 @@
 class Food{
   constructor(x, y){
     this.loc = createVector(x, y);//location of food
-    this.clr = color(255, 0, 0);//color of food
+    this.clr = color(5);//color of food
   }
   run(){
     this.inSnake();
@@ -13,7 +13,7 @@ class Food{
   render(){
     fill(this.clr);//colors food
     rect(this.loc.x*w, this.loc.y*w, w, w);//renders food
-    image(img, this.loc.x*w, this.loc.y*w, w, w);
+    image(img, this.loc.x*w-w/2, this.loc.y*w-w/2, 2*w, 2*w);
   }//render end
   update(){
     while(this.inSnake() === true){

@@ -10,7 +10,7 @@ var w = 25;//the width of the grid boxes
 var header_height;
 var buttons = [];//the array of buttons
 function preload(){
-  img = loadImage('https://i7.pngguru.com/preview/364/341/295/apple-auglis-fruit-apple-fruit-thumbnail.jpg');
+  img = loadImage('apple.png');
 }
 function setup() {
   var cnv = createCanvas(800, 800);

@@ -9,7 +9,6 @@ class Snake{
   }
   run(){
     this.update();//moves snake and body
-    this.tangle();//ends game if snake leaves screen or hits itself
     this.render();//renders snake
   }//run end
   render(){
@@ -49,36 +48,28 @@ class Snake{
     //update the head
     this.head.add(this.vel);//moves the head
     if(this.tangle() === true){
-      
+      gameState = 3;
+      snake.vel.x = 0;//resets snake velocity to zero
+      snake.vel.y = 0;
+    }//ends game when tangle is true
+    if(this.head.x === food.loc.x && this.head.y === food.loc.y){
+      this.createSegment();//create new body segment when snake gets to food
     }
   }
   tangle(){
     if(this.head.x >= width/w){
-      gameState = 3;
-      snake.vel.x = 0;//resets snake velocity to zero
-      snake.vel.y = 0;
+      return true
     }else if (this.head.x < 0) {
-      gameState = 3;
-      snake.vel.x = 0;//resets snake velocity to zero
-      snake.vel.y = 0;
+      return true
     }else if (this.head.y >= height/w) {
-      gameState = 3;
-      snake.vel.x = 0;//resets snake velocity to zero
-      snake.vel.y = 0;
+      return true
     }else if (this.head.y < 0) {
-      gameState = 3;
-      snake.vel.x = 0;//resets snake velocity to zero
-      snake.vel.y = 0;
+      return true
     }//ends game if snake leaves the screen
     for(var i = 0; i < this.body.length; i++){//goes through entire body array to check for collisions.
       if(this.head.x === this.body[i].x && this.head.y === this.body[i].y){
-        gameState = 3;
-        snake.vel.x = 0;//resets snake velocity to zero
-        snake.vel.y = 0;
+        return true
       }//ends game if snake hits hits its body
-    }
-    if(this.head.x === food.loc.x && this.head.y === food.loc.y){
-      this.createSegment();//create new body segment when snake gets to food
     }
   }//tangle end
   createSegment(){

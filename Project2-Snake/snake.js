@@ -20,19 +20,6 @@ class Snake{
     }//renders the body segments
   }//render end
   update(){
-    if(keyIsDown(65) && this.vel.x ==! 1){
-      this.vel.x = -1;//makes snake go left when a is pressed
-      this.vel.y = 0;//makes snake not go diagonal
-    }else if (keyIsDown(87) && this.vel.y ==! 1) {
-      this.vel.y = -1;//makes snake go down when s is pressed
-      this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyIsDown(83) && this.vel.y ==! -1) {
-      this.vel.y = 1;//makes snake go up when w is pressed
-      this.vel.x = 0;//makes snake not go diagonal
-    }else if (keyIsDown(68) && this.vel.x ==! -1) {
-      this.vel.x = 1;//makes snake go right when d is pressed
-      this.vel.y = 0;//makes snake not go diagonal
-    }
     //update the body
     if(this.body.length >= 1){
       for(var i = this.body.length-1; i >= 0; i--){//updates body array in reverse to prevent stacking

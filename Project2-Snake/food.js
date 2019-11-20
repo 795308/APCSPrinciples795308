@@ -6,7 +6,6 @@ class Food{
     this.clr = color(5);//color of food
   }
   run(){
-    this.inSnake();
     this.update();
     this.render();
   }//run end

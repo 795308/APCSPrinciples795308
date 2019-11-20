@@ -80,3 +80,15 @@ function loadObjects(){
   snake = new Snake();
   food = new Food(Math.floor(random(width/w - 1)), Math.floor(random(width/w - 1)));//creates food in random position
 }//loads the snake and the food
+
+function keyPressed(){
+  if(keyIsDown(65) && this.vel.x ==! 1){
+    snake.vel = createVector(-1, 0);
+  }else if (keyIsDown(87) && this.vel.y ==! 1) {
+    snake.vel = createVector(0, -1);
+  }else if (keyIsDown(83) && this.vel.y ==! -1) {
+    snake.vel = createVector(0, 1);
+  }else if (keyIsDown(68) && this.vel.x ==! -1) {
+    snake.vel = createVector(1, 0);
+  }
+}

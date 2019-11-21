@@ -36,8 +36,6 @@ class Snake{
     this.head.add(this.vel);//moves the head
     if(this.tangle() === true){
       gameState = 3;
-      snake.vel.x = 0;//resets snake velocity to zero
-      snake.vel.y = 0;
     }//ends game when tangle is true
     if(this.head.x === food.loc.x && this.head.y === food.loc.y){
       this.createSegment();//create new body segment when snake gets to food

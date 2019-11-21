@@ -35,6 +35,8 @@ function draw() {
     buttons[1].run();//runs instructions buttons
     snake.head.x = width/w/2;//resets snake head location to center
     snake.head.y = height/w/2;
+    snake.vel.x = 0;//resets snake velocity to zero
+    snake.vel.y = 0;
   }else if (gameState === 2) {
     background(5,5,5);
     runObjects();//runs the snake and food
@@ -81,14 +83,14 @@ function loadObjects(){
   food = new Food(Math.floor(random(width/w - 1)), Math.floor(random(width/w - 1)));//creates food in random position
 }//loads the snake and the food
 
-function keyPressed(){
-  if(keyIsDown(65) && this.vel.x ==! 1){
+function keyPressed(){//detects when keys are pressed to control the snake
+  if(keyIsDown(65) && snake.vel.x ==! 1){
     snake.vel = createVector(-1, 0);
-  }else if (keyIsDown(87) && this.vel.y ==! 1) {
+  }else if (keyIsDown(87) && snake.vel.y ==! 1) {
     snake.vel = createVector(0, -1);
-  }else if (keyIsDown(83) && this.vel.y ==! -1) {
+  }else if (keyIsDown(83) && snake.vel.y ==! -1) {
     snake.vel = createVector(0, 1);
-  }else if (keyIsDown(68) && this.vel.x ==! -1) {
+  }else if (keyIsDown(68) && snake.vel.x ==! -1) {
     snake.vel = createVector(1, 0);
   }
 }

@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/17/19
+// 	11/22/19
 class Snake{
   constructor(){
     this.head = createVector(height/w/2, width/w/2);//location of the head
@@ -20,7 +20,6 @@ class Snake{
     }//renders the body segments
   }//render end
   update(){
-    //update the body
     if(this.body.length >= 1){
       for(var i = this.body.length-1; i >= 0; i--){//updates body array in reverse to prevent stacking
         if(i < 1){
@@ -32,7 +31,6 @@ class Snake{
         }
       }
     }
-    //update the head
     this.head.add(this.vel);//moves the head
     if(this.tangle() === true){
       gameState = 3;
@@ -50,11 +48,11 @@ class Snake{
       return true
     }else if (this.head.y < 0) {
       return true
-    }//ends game if snake leaves the screen
+    }//returns true if snake leaves the screen
     for(var i = 0; i < this.body.length; i++){//goes through entire body array to check for collisions.
       if(this.head.x === this.body[i].x && this.head.y === this.body[i].y){
         return true
-      }//ends game if snake hits hits its body
+      }//returns true if snake hits hits its body
     }
   }//tangle end
   createSegment(){

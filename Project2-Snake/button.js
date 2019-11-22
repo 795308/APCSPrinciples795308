@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/17/19
+// 	11/22/19
 class Button{
   constructor(id){
     this.x = 0;//x location
@@ -62,6 +62,6 @@ class Button{
     }//checks if mouse is hovering over a button to remove the text
     if(mouseX > this.x - this.w/2 && mouseX < this.x + this.w/2 && mouseY > this.y - this.h/2 && mouseY < this.y + this.h/2 && mouseIsPressed){
       gameState = this.gotostate
-    }//changes gameState, n, health, and difficulty when a button is pressed to whatever is designated by idCheck
+    }//changes gameState when a button is pressed to whatever is designated by idCheck
   }
 }

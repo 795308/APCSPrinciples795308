@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/17/19
+// 	11/22/19
 class Food{
   constructor(x, y){
     this.loc = createVector(x, y);//location of food
@@ -18,7 +18,7 @@ class Food{
     while(this.inSnake() === true){
       this.loc.x = Math.floor(random(width/w - 1));
       this.loc.y = Math.floor(random(width/w - 1));
-    }//moves food to a random location if it is in the snake without increasing the snake's size
+    }//moves food to a random location as long as inSnake is true, prevents food from appearing in snake
   }//update end
   inSnake(){
     if(snake.head.x === this.loc.x && snake.head.y === this.loc.y){

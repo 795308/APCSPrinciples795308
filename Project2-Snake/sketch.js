@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/17/19
+// 	11/22/19
 //  This is a comment
 //  The setup function function is called once when your program begins
 var img;
@@ -19,7 +19,7 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   loadObjects();//loads everything when the game starts
-  frameRate(15);
+  frameRate(15);//speed prgram runs
 }
 
 //  The draw function is called @ 30 fps
@@ -45,14 +45,14 @@ function draw() {
     textSize(25);
     text("Score = " + snake.body.length, 10, 30);//display score;
   }else if (gameState === 3) {
-    background (5,5,5,20);
+    background (5,5,5,20);//makes game fade out
     textAlign(CENTER);
     fill(255,0,0);
     textSize(50)
     text("YOU LOSE", 400, 400);//stops the game on tangling
     fill(255);
     textSize(40);
-    text("FINAL SCORE = " + snake.body.length, 400, 300);//displays length of snake at end
+    text("FINAL SCORE = " + snake.body.length, 400, 300);//displays final score
     buttons[2].run();//runs replay button
   }else if (gameState === 4) {
     background(5,5,5);
@@ -71,15 +71,15 @@ function draw() {
 }
 
 function runObjects(){
-  snake.run();
-  food.run();
+  snake.run();//runs snake
+  food.run();//runs food
 }//runs the snake and the food
 
 function loadObjects(){
   for(var i = 0; i < 4; i++){
     buttons[i] = new Button(i);
   }//loads buttons into array
-  snake = new Snake();
+  snake = new Snake();//creates snake
   food = new Food(Math.floor(random(width/w - 1)), Math.floor(random(width/w - 1)));//creates food in random position
 }//loads the snake and the food
 

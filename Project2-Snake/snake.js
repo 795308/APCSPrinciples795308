@@ -1,5 +1,5 @@
 //  Nico McCarten
-// 	11/22/19
+// 	11/25/19
 class Snake{
   constructor(){
     this.head = createVector(height/w/2, width/w/2);//location of the head

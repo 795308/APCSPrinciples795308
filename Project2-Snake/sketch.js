@@ -1,13 +1,12 @@
 //  Nico McCarten
-// 	11/22/19
+// 	11/25/19
 //  This is a comment
 //  The setup function function is called once when your program begins
 var img;
 var gameState = 1;//controls gameState
 var snake;//the snake
-var food;//the foo
+var food;//the food
 var w = 25;//the width of the grid boxes
-var header_height;
 var buttons = [];//the array of buttons
 function preload(){
   img = loadImage('apple.png');
@@ -80,7 +79,6 @@ function loadObjects(){
     buttons[i] = new Button(i);
   }//loads buttons into array
   snake = new Snake();//creates snake
-  food = new Food(Math.floor(random(width/w - 1)), Math.floor(random(width/w - 1)));//creates food in random position
 }//loads the snake and the food
 
 function keyPressed(){//detects when keys are pressed to control the snake
